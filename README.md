@@ -1,11 +1,21 @@
-## Gustavo F
+# Gustavo Franco
 
 
-### Currently learning ...
-![alt text](https://github.com/gussf/gussf/blob/Golang.png?raw=true)
+### Interested in ...
+* Cloud Architecture (mostly AWS)
+* DevOps and IaC
+* C/C++
+* Go
+* gRPC
+* Linux-based systems
 
 
+### Current projects ... (study only)
+* **aws-terraform-playground** - Experimenting with terraform in a personal AWS account
+* **go-bookstore**             - Practicing Go's webservers and database access
+* **trnsl8**                   - A CLI built in Go which does translation and language detection
 
+![](https://github.com/gussf/gussf/tree/main/blob/Golang.png)
 <!--
 **gussf/gussf** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
