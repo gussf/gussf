@@ -1,4 +1,10 @@
-### Hi there 👋
+## Gustavo F
+
+
+### Currently learning ...
+![alt text](https://github.com/gussf/gussf/blob/Golang.png?raw=true)
+
+
 
 <!--
 **gussf/gussf** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
