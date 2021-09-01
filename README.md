@@ -3,13 +3,19 @@
 
 ### Interested in ...
 * Cloud Architecture (mostly AWS)
+* Clean Architecture
+* Microservices
 * DevOps and IaC
 * C/C++
 * Go
 * gRPC
 * Linux-based systems
 
-<br>
+<hr>
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=gussf&theme=tokyonight)
+
+<hr>
 
 ### Current projects ... (learning purposes)
 * [aws-terraform-playground](../../../aws-terraform-playground)    Experimenting with terraform in a personal AWS account
