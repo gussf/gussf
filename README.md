@@ -11,7 +11,7 @@
 
 ### Interested in ...
 * Cloud Architecture (mostly AWS)
-* Clean Architecture
+* Clean Architecture, Clean Code, DDD
 * Microservices
 * DevOps
 * C/C++
