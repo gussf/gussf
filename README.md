@@ -10,6 +10,7 @@
 <hr>
 
 ### Interested in ...
+* Full cycle development
 * Cloud Architecture (mostly AWS)
 * Clean Architecture, Clean Code, DDD
 * Microservices
