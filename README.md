@@ -14,7 +14,6 @@
 * Clean Architecture, Clean Code, DDD
 * Microservices
 * DevOps
-* C/C++
 * Go
 * gRPC
 * Linux-based systems
