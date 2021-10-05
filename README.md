@@ -14,7 +14,7 @@
 * Cloud Architecture (mostly AWS)
 * Clean Architecture, Clean Code, DDD
 * Microservices
-* DevOps
+* SRE/DevOps
 * Go
 * gRPC
 * Linux-based systems
