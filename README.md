@@ -1,13 +1,13 @@
 # Hello! :wave:
 <br>
 
-<img align="left" alt="Golang" width="70px" src="https://github.com/devicons/devicon/blob/master/icons/go/go-original.svg"/><img align="left" alt="Linux" width="70px" src="https://github.com/devicons/devicon/blob/master/icons/linux/linux-original.svg"/>
-<img align="left" alt="AWS" width="70px" src="https://github.com/devicons/devicon/blob/master/icons/amazonwebservices/amazonwebservices-original.svg"/>
-<img align="left" alt="Docker" width="80px" src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original.svg"/>
-<img align="left" alt="Flutter" width="70px" src="https://github.com/devicons/devicon/blob/master/icons/flutter/flutter-original.svg"/>
+<img align="left" alt="Golang" width="40px" src="https://github.com/devicons/devicon/blob/master/icons/go/go-original.svg"/><img align="left" alt="Linux" width="40px" src="https://github.com/devicons/devicon/blob/master/icons/linux/linux-original.svg"/>
+<img align="left" alt="AWS" width="40px" src="https://github.com/devicons/devicon/blob/master/icons/amazonwebservices/amazonwebservices-original.svg"/>
+<img align="left" alt="Docker" width="50px" src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original.svg"/>
+<img align="left" alt="Flutter" width="40px" src="https://github.com/devicons/devicon/blob/master/icons/flutter/flutter-original.svg"/>
 
-<br><br>
-<hr>
+<br>
+
 
 ### Interested in ...
 * Full cycle development
