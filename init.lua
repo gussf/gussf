@@ -44,6 +44,13 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- nvim-tree disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- nvim-tree set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -69,6 +76,10 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
+  -- nvim-tree
+  'nvim-tree/nvim-tree.lua',
+  'nvim-tree/nvim-web-devicons',
+
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -93,6 +104,31 @@ require('lazy').setup({
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
+  },
+
+  {
+    -- Theme inspired by Atom
+    'navarasu/onedark.nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'onedark'
+    end,
+  },
+
+  -- barbar (tabs)
+  {'romgrk/barbar.nvim',
+	  dependencies = {
+		  'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+			  'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+	  },
+	  init = function() vim.g.barbar_auto_setup = false end,
+	  opts = {
+		  -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+			  -- animation = true,
+		  -- insert_at_start = true,
+		  -- …etc.
+	  },
+	  version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
 
   -- go
@@ -204,16 +240,6 @@ require('lazy').setup({
       end,
     },
   },
-
-  {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -371,6 +397,39 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+-- [[ Configure vim-tree ]]
+local function my_on_attach(bufnr)
+  local api = require "nvim-tree.api"
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  -- default mappings
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- custom mappings
+  vim.keymap.set('n', '<C-t>', api.tree.change_root_to_node,          opts('Up'))
+  vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+end
+
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+
+  on_attach = my_on_attach,
+})
+
+vim.keymap.set("n","<leader>o", ":NvimTreeOpen<CR>", { desc = 'Open file tree', noremap = true })
+vim.keymap.set("n","<leader>O", ":NvimTreeClose<CR>", { desc = 'Close file tree', noremap = true })
+
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -383,7 +442,6 @@ require('telescope').setup {
     },
   },
 }
-
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
@@ -631,6 +689,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = format_sync_grp,
 })
 
+-- [[ Configure barbar ]]
+vim.api.nvim_set_keymap('n', '<A-,>', '<Cmd>BufferPrevious<CR>',{ noremap = true, silent = true, desc = "Previous buffer tab"})
+vim.api.nvim_set_keymap('n', '<A-.>', '<Cmd>BufferNext<CR>',{ noremap = true, silent = true, desc = "Next buffer tab"} )
+vim.api.nvim_set_keymap('n', '<A-c>', '<Cmd>BufferClose<CR>',{ noremap = true, silent = true, desc = "Close buffer tab" })
+
+
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
@@ -652,6 +716,7 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
