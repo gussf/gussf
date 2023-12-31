@@ -50,7 +50,6 @@ vim.g.loaded_netrwPlugin = 1
 -- nvim-tree set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
-
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -427,8 +426,7 @@ require("nvim-tree").setup({
   on_attach = my_on_attach,
 })
 
-vim.keymap.set("n","<leader>o", ":NvimTreeOpen<CR>", { desc = 'Open file tree', noremap = true })
-vim.keymap.set("n","<leader>O", ":NvimTreeClose<CR>", { desc = 'Close file tree', noremap = true })
+vim.keymap.set("n","<leader>o", ":NvimTreeFindFileToggle<CR>", { desc = 'Toggle file tree'})
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -441,6 +439,7 @@ require('telescope').setup {
       },
     },
   },
+
 }
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -498,9 +497,11 @@ local function telescope_live_grep_open_files()
     prompt_title = 'Live Grep in Open Files',
   }
 end
+
 vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+-- custom: Fixed search of hidden files and exclusion of .git, etc. using https://github.com/BurntSushi/ripgrep with a config file
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
